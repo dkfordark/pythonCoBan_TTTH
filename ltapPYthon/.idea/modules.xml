@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/ltapPy.iml" filepath="$PROJECT_DIR$/.idea/ltapPy.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/ltapPYthon.iml" filepath="$PROJECT_DIR$/.idea/ltapPYthon.iml" />
     </modules>
   </component>
 </project>
