@@ -12,7 +12,7 @@ def KiemTra2(n):
     return True
 
 n = NhapSo()
-if KiemTra2():
+if KiemTra2(n):
     print("%d la so nguyen to" % (n))
 else:
     print("%d ko phai la so nguyen to" % (n))
