@@ -1,0 +1,5 @@
+ls1 = list(input("nhap 1 so nguyen"))
+print(ls1)
+print(sorted(ls1))
+print("".join(sorted(ls1)))
+print("".join(sorted(ls1,reverse=True)))
