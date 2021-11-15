@@ -31,20 +31,37 @@ def DocFile_CSV(filename):
             lst = csvReaderObj.__next__()
             print('-' * 75)
             print('|',lst[0].center(39),'|',lst[1].center(30),'|')
+            lstQuocGia.append(lst[0][-4:])
+            lstLanhTho.append(lst[1])
             print('-' * 75)
             for row in csvReaderObj:
                 if (row[1]=='Africa' or row[1]=='Europe' or row[1]=='South-East Asia') and int(row[2])==0:
                     print('|{:<40s}|{:>32s}|'.format(row[0],row[1]))
                     lstQuocGia.append(row[0])
-                    lstLanhTho.append(row[0])
+                    lstLanhTho.append(row[1])
             print('-' * 75)
         return list(zip(lstQuocGia, lstLanhTho))
     except FileNotFoundError:
         print('Tim khong thay tap tin')
 # --------------------------------------------------------------------------------
+def GhiNoiDungFile_CSV(filename,lstNoiDung):
+    try:
+        with open(filename,'w',encoding='utf8')as f:
+            csvWriterObj = csv.writer(f,delimiter=',')
+            for row in lstNoiDung:
+                csvWriterObj.writerow(row)
+    except FileNotFoundError:
+        print('Tim khong thay tap tin')
+# --------------------------------------------------------------------------------
+# ------------------- Chuong trinh chinh -----------------------------------------
+# ------- Cau 4 ------------------------------------------------------------------
 # Cau a
-InNoiDungFile_CSV('E:/personal/Thien_PythonFundamental_TTTH/pythonCoBan_TTTH/de thi cuoi khoa/WHO-COVID-19-global-table-data.csv')
-# cau b
-lst =  DocFile_CSV('E:/personal/Thien_PythonFundamental_TTTH/pythonCoBan_TTTH/de thi cuoi khoa/WHO-COVID-19-global-table-data.csv')
+InNoiDungFile_CSV('C:/Users/Abc/Documents/Thien_PythonFundamental_TTTH/pythonCoBan_TTTH/de thi cuoi khoa/WHO-COVID-19-global-table-data.csv')
+# Cau b
+lst =  DocFile_CSV('C:/Users/Abc/Documents/Thien_PythonFundamental_TTTH/pythonCoBan_TTTH/de thi cuoi khoa/WHO-COVID-19-global-table-data.csv')
 print("List(Quoc gia, Lanh Tho):", lst)
+# Cau c
+# QuocGia , LanhTho = zip(*lst)
+# print(QuocGia,LanhTho)
+GhiNoiDungFile_CSV('C:/Users/Abc/Documents/Thien_PythonFundamental_TTTH/pythonCoBan_TTTH/de thi cuoi khoa/ketqua.csv',lst)
 
